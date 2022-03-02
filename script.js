@@ -15,10 +15,11 @@ class Deck{
     let ranks =  ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen","King", "Ace"]
     for (let i = 0; i < suits.length; i++){
       for (let j = 0; j < ranks.length; j++){
-        this.cards.push(new Cards(suits[i], ranks[j], j+1))
+        this.cards.push(new Cards(suits[i], ranks[j], j + 2))
+        this.cards.sort((a,b) => Math.random() - Math.random())
       }
     }
-}
+  }
 }
 let newDeck = new Deck()
 console.log(newDeck.cards)
