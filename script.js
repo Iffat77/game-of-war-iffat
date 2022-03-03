@@ -1,3 +1,10 @@
+class Player {
+  constructor(name) {
+    this.name = name
+    this.deck = []
+  }
+}
+
 class Cards {
   constructor(suit, rank, score) {
     this.suit = suit
@@ -22,4 +29,31 @@ class Deck{
   }
 }
 let newDeck = new Deck()
-console.log(newDeck.cards)
+let player1 = new Player("Undertaker")
+let player2 = new Player("Triple H")
+
+class Game{
+  constructor(deck, player1, player2) {
+    this.deck = deck
+    this.player1 = player1
+    this.player2 = player2
+  }
+  
+  playGame() {
+    let half = Math.ceil(this.deck.length/2)
+     let deckOne = this.deck.slice(0, half)
+      let deckTwo = this.deck.slice(-half)
+       this.player1.deck = deckOne
+         this.player2.deck = deckTwo
+    
+  }
+
+}
+
+let myGame = new Game(newDeck.cards, player1, player2)
+
+
+
+myGame.playGame()
+
+console.log(myGame)
