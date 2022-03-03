@@ -45,7 +45,15 @@ class Game{
       let deckTwo = this.deck.slice(-half)
        this.player1.deck = deckOne
          this.player2.deck = deckTwo
-    
+         
+    if (this.player1.deck[0].score > this.player2.deck[0].score) {
+      this.player1.deck.push(this.player2.deck.shift(), this.player1.deck.shift())
+    } else if (this.player1.deck[0].score < this.player2.deck[0].score) {
+      this.player2.deck.push(this.player1.deck.shift(), this.player2.deck.shift())
+    }
+                  
+      
+               
   }
 
 }
@@ -56,4 +64,4 @@ let myGame = new Game(newDeck.cards, player1, player2)
 
 myGame.playGame()
 
-console.log(myGame)
+console.log(myGame.playGame().length)
